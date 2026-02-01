@@ -110,12 +110,32 @@
       color: #7f8c8d;
       text-align: center;
     }
-    .prediction {
-      margin-top: 22px;
-      text-align: center;
-      color: #16a085;
-      font-size: 1.22rem;
+    .prediction-card {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(22, 160, 133, 0.10);
+      padding: 22px 18px 18px 18px;
+      min-width: 260px;
+      max-width: 100%;
+      border: 1.5px solid #16a08533;
+      font-size: 1.18rem;
       font-weight: 600;
+      color: #138d75;
+      position: relative;
+      animation: fadeIn 0.7s;
+    }
+    .prediction-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      color: #16a085;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     footer {
       margin-top: 32px;
@@ -180,7 +200,10 @@
     </form>
     <div class="note">Enter correct details to get accurate prediction</div>
     {% if prediction_text %}
-      <div class="prediction">{{ prediction_text }}</div>
+      <div class="prediction-card">
+        <div class="icon">💰</div>
+        {{ prediction_text }}
+      </div>
     {% endif %}
   </div>
   <footer>
